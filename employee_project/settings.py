@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 
@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^zawy*=w&d399(6&&xxte)^zz^8vf76bv@bj_t!-6(2un@z%^_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://employeeproject-shahed.herokuapp.com/']
+ALLOWED_HOSTS = ['employeeproject-crud.herokuapp.com']
 
 
 # Application definition
@@ -158,3 +158,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
+django_heroku.settings(locals())
