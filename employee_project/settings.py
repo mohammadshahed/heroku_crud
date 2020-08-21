@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-# import django_heroku
+
 import os
 
 
@@ -24,9 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^zawy*=w&d399(6&&xxte)^zz^8vf76bv@bj_t!-6(2un@z%^_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['employeeproject-crud.herokuapp.com']
+
+ALLOWED_HOSTS = ['employeeproject-crud.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -79,31 +80,38 @@ WSGI_APPLICATION = 'employee_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd76i9h1e6njaqc',
-        'USER': 'dyjilergjaylso',
-        'PASSWORD': 'e6333c11a0d62e1219eb6810ef5c713da238249743d5e52b70df1c6127655c30',
-        'HOST': 'ec2-50-16-198-4.compute-1.amazonaws.com',
-        'PORT' : '5432'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd76i9h1e6njaqc',
+#         'USER': 'dyjilergjaylso',
+#         'PASSWORD': 'e6333c11a0d62e1219eb6810ef5c713da238249743d5e52b70df1c6127655c30',
+#         'HOST': 'ec2-50-16-198-4.compute-1.amazonaws.com',
+#         'PORT' : '5432'
+#     }
+# }
 
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'crud_django',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306'
-#     }
-# }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'crud_django',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'HOST': '127.0.0.1',
+#        'PORT': '3306'
+#    }
+#}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -158,4 +166,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-# django_heroku.settings(locals())
